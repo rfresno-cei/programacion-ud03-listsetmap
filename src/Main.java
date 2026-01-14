@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ejercicio6();
+        ejercicio9();
     }
 
     public static void ejercicio1() {
@@ -99,6 +100,63 @@ public class Main {
             System.out.println("La segunda lista es más larga");
         } else {
             System.out.println("Son iguales");
+        }
+    }
+
+    public static void ejercicio7() {
+        HashMap<String, Integer> personas = new HashMap<>();
+        personas.put("Brandon", 3);
+        personas.put("Daniel", 2);
+        personas.put("Carlos", 1);
+        personas.put("Rafa", 1);
+        personas.put("Terry", 8);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce nombre: ");
+        String nombre = sc.nextLine();
+        if (personas.containsKey(nombre)) {
+            int edad =  personas.get(nombre);
+            boolean esMayor = edad >= 18;
+            System.out.println("Edad: " + edad);
+            System.out.println("Es mayor: " + esMayor);
+        }
+    }
+
+    public static void ejercicio8() {
+        HashMap<String, Double>  notas = new HashMap<>();
+        notas.put("Terry", 7.5);
+        notas.put("Carlos", 10.0);
+        notas.put("Rafa", 10.0);
+        notas.put("Daniel", 2.0);
+        notas.put("Julián", 1.5);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce nombre: ");
+        String nombre = sc.nextLine();
+        if (notas.containsKey(nombre)) {
+            System.out.println("Nota media: " + notas.get(nombre));
+            System.out.println("Aprobado: " + (notas.get(nombre) >= 5.0));
+        }
+    }
+
+    public static void ejercicio9() {
+        HashMap<String, String> usuarios = new HashMap<>();
+        usuarios.put("Julián", "capi21capi");
+        usuarios.put("Carlos", "carlos123");
+        usuarios.put("Nerea", "2240");
+        usuarios.put("Nacho", "583");
+        usuarios.put("Isa", "spiderman123");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce nombre: ");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce contraseña: ");
+        String password = sc.nextLine();
+        if (usuarios.containsKey(nombre)) {
+            if (usuarios.get(nombre).equals(password)) {
+                System.out.println("Login correcto");
+            } else {
+                System.out.println("Usuario y/o contraseña incorrectos");
+            }
+        } else {
+            System.out.println("Usuario y/o contraseña incorrectos");
         }
     }
 }
